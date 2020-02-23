@@ -1,0 +1,43 @@
+<div class="container">
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <div class="form-group mt-5">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" formControlName="email"  ngModel [email]="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small 
+         *ngIf="email.invalid && (email.touched || email.dirty)" 
+         class="form-text validation-msg">
+         please enter a valid email
+        </small>  
+    
+    </div>
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name">
+        <small
+         *ngIf="name.invalid && (name.touched || name.dirty)"
+         id="emailHelp" class="form-text validation-msg">
+         please type your name.
+        </small>    
+    </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+        <small
+         *ngIf="password.invalid && (password.touched || password.dirty)" 
+         id="emailHelp" class="form-text validation-msg">
+         please type password.
+         </small>    
+    </div>
+        <div class="form-group">
+        <label for="confirmInputPassword">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="mathPassword" id="confirmInputPassword">
+        <small 
+         *ngIf="mathPassword.invalid && (mathPassword.touched || mathPassword.dirty)"
+         class="form-text validation-msg">
+         Password does not match
+        </small>  
+        
+    </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
+    </form>
+</div>

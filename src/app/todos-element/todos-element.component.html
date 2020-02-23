@@ -1,0 +1,18 @@
+<div class="card w-100 mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ todo.title }}</h5>
+    <p class="card-text">{{ todo.subject }}</p>
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" [checked]="todo.completed" (change)="onComplete(todo, $event)"
+        id="completed" />
+      <label class="form-check-label" for="completed">
+        Completed
+      </label>
+    </div>
+    <div>
+      <!-- <a class="btn btn-info mr-2" (click)="showOne()">Show</a> -->
+      <a class="btn btn-warning mr-2" (click)="updateOne(todo)">Update</a>
+      <a class="btn btn-danger mr-2" (click)="deleteOne(todo)">Delete</a>
+    </div>
+  </div>
+</div>
