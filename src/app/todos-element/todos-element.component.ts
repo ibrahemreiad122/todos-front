@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ITodos } from "../shared/ITodos";
 import { Router } from "@angular/router";
 import { TodosService } from '../shared/todos.service';
-import { Location } from '@angular/common';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class TodosElementComponent implements OnInit {
   @Input() todo: ITodos;
   @Output() onDeleteTodo = new EventEmitter<ITodos>();
 
-  constructor(private router: Router, private location: Location, private todoService: TodosService) { }
+  constructor(private router: Router, private todoService: TodosService) { }
 
   ngOnInit() { }
 
