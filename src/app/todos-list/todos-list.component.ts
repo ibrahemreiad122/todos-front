@@ -11,9 +11,10 @@ import { ITodos } from "../shared/ITodos";
 })
 export class TodosListComponent implements OnInit {
   constructor(private todoService: TodosService, private router: Router) { }
-
+  completed: boolean = true;
   todosList: ITodos[] = [];
   filterTodos: ITodos[] = [];
+
   private _filterList: string;
   ngOnInit() {
     this.todoService.getAllTodos().subscribe(data => {
@@ -40,6 +41,19 @@ export class TodosListComponent implements OnInit {
       return todoList.title.toLowerCase().indexOf(_filterList.toLowerCase()) > -1;
     })
   }
+  showCompleted(todo) {
+    // return this.todosList.filter((todoList: ITodos) => {
+    //   console.log(todoList.completed == true)
+    //   return todoList.completed == true
+
+    this.filterTodos = this.todosList.filter((el: ITodos) => el.completed == this.completed)
+    this.completed = !this.completed
+    if (this.completed == false) {
+      return this.filterTodos
+    }
+  }
+
+
   goToCreate() {
     this.router.navigate(["/todo"]);
   }
