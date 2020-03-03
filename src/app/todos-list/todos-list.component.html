@@ -1,7 +1,20 @@
 <div class="container">
-  <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-4" (click)="goToCreate()">
-    create todo
+  <div class="row mt-5">
+    <div class="col-md-2">Filter by</div>
+    <div class="col-md-4">
+      <input type="text" [(ngModel)]="filterList">
+    </div>
+  </div>
+  <button class="btn btn-danger mt-3 mb-3" (click)="showCompleted()">
+    {{completed?"show completed":"show uncompleted"}}
   </button>
-  <app-todos-element *ngFor="let todoElement of todosList" [todo]="todoElement" (onDeleteTodo)="onDelete($event)">
+  <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-4" (click)="goToCreate()">
+    Create Todo
+  </button>
+  <app-todos-element *ngFor="let todoElement of filterTodos" [todo]="todoElement" (onDeleteTodo)="onDelete($event)">
+
   </app-todos-element>
+
+  <div class="alert alert-warning" *ngIf="filterTodos.length==0">No todo to show</div>
+  <!-- <div class="alert alert-warning" *ngIf="filterTodos.length==0">not match</div> -->
 </div>

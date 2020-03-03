@@ -9,10 +9,10 @@ import { TodosListComponent } from './todos-list/todos-list.component';
 import { TodosElementComponent } from './todos-element/todos-element.component';
 import { TodoComponent } from './todo/todo.component';
 import { HeaderComponent } from './header/header.component';
-import {TodosService}from './shared/todos.service';
-import {UsersService}from './shared/users.service';
-import {HttpClientModule}from '@angular/common/http';
-import {ReactiveFormsModule}from '@angular/forms'
+import { TodosService } from './shared/todos.service';
+import { UsersService } from './shared/users.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { from } from 'rxjs';
 
 @NgModule({
@@ -29,7 +29,8 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     TodosService,
